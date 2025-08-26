@@ -25,7 +25,10 @@ const notification = () => {
       });
       
     }
-});
+    myNotification.onclick = () => {
+      window.open("https://google.com", "_blank");
+    };
+});//end of click btn
 }
 
 notification()
