@@ -5,6 +5,22 @@ body {
   font-family: sans-serif;
 }
 
+.install_btn {
+  background-color: #FF0000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: block;
+  font-size: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
 .title {
   color: red;
   font-size: 50px;
