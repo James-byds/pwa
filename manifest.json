@@ -29,5 +29,17 @@
       "sizes": "256x256",
       "type": "image/png"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/screenshot_port.png",
+      "sizes": "570x797",
+      "type": "image/png"
+    },
+    {
+      "src": "screenshots/screenshot_landscape.png",
+      "sizes": "1217x800",
+      "type": "image/png"
+    }
   ]
 }
