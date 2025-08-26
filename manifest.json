@@ -3,6 +3,8 @@
   "short_name": "Demo",
   "start_url": "index.html",
   "display": "standalone",
+  "theme_color": "#ff0000",
+  "background_color": "purple",
   "description": "Une demo PWA pour apprendre son fonctionnement",
   "version": "1.0",
   "author": "James Boydens",
