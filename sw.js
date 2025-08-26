@@ -46,11 +46,19 @@ self.addEventListener("activate", (e) => {
 });
 
 //proxy
-self.addEventListener("fetch", (e) => {
-  console.log("fetching");
-  e.respondWith(//permet de renvoyer la requete
-    caches.match(e.request).then((response) => {//si la requete est dans le cache
-      return response || fetch(e.request);//renvoyer la requete sinon la faire sur le serveur
+self.addEventListener('fetch', e => {
+     e.respondWith(
+    caches.match(e.request)
+    .then(cached => {
+      return cached;
+      }).catch(() => {
+        return fetch(e.request).then((resp) => {
+        const respClone = resp.clone();
+        caches.open(CACHE_NAME).then(cache => cache.put(e.request, respClone));
+        return resp;
+        // Optionnel: renvoyer un fallback pour images/CSS si souhaité
+        // return caches.match('/fallback.png');
+      });
     })
   );
-});
+})

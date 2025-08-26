@@ -3,7 +3,7 @@ let deferredPrompt = null;
 
 btn.classList.add("hidden");
 
-export const install = () => {
+const install = () => {
   window.addEventListener("beforeinstallprompt", (e) => {
     //cet event ne se lancera que si le navigateur supporte les PWA
     e.preventDefault();
@@ -24,3 +24,5 @@ window.addEventListener("appinstalled", (e) => {
   console.log("appinstalled fired");
 });
 }
+
+install()
