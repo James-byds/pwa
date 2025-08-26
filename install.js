@@ -3,15 +3,16 @@ let deferredPrompt = null;
 
 btn.classList.add("hidden");
 
-window.addEventListener("beforeinstallprompt", (e) => {
-  //cet event ne se lancera que si le navigateur supporte les PWA
-  e.preventDefault();
-  console.log("beforeinstallprompt fired");
-  deferredPrompt = e; // Store the event to be able to trigger the prompt
-  btn.classList.remove("hidden");
-});
-
-btn.addEventListener("click", async (e) => {
+export const install = () => {
+  window.addEventListener("beforeinstallprompt", (e) => {
+    //cet event ne se lancera que si le navigateur supporte les PWA
+    e.preventDefault();
+    console.log("beforeinstallprompt fired");
+    deferredPrompt = e; // Store the event to be able to trigger the prompt
+    btn.classList.remove("hidden");
+  });
+  
+  btn.addEventListener("click", async (e) => {
   e.preventDefault();
   deferredPrompt.prompt();
   const result = await deferredPrompt.userChoice;
@@ -22,3 +23,4 @@ btn.addEventListener("click", async (e) => {
 window.addEventListener("appinstalled", (e) => {
   console.log("appinstalled fired");
 });
+}

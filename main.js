@@ -1,3 +1,5 @@
+import { install } from "/install.js";
+
 const APIurl = "https://ingrwf12.cepegra-frontend.xyz/cockpit1/api/content/item/voyages";
 
 fetch(APIurl)
@@ -12,3 +14,5 @@ fetch(APIurl)
   prix.innerHTML = data["voyages-prix"];
   //data.voyages-prix ne fonctionne pas car le - n'est pas pris en compte
 })
+
+install();
