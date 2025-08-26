@@ -2,16 +2,16 @@ const notification = () => {
   const btn = document.querySelector(".notification_btn");
   btn.addEventListener("click", (ev) => {
     ev.preventDefault();
-    let myNotification = null;
-    const options = {
+    let myNotification = null;//initialisation
+    const options = {//les options de la notification
       body: "Ceci est une notification",
       icon: "icons/favicon-256x256.png",
       vibrate: [100, 50, 100],
       tag: "notification",
     };
-    if (!("Notification") in window) {
+    if (!("Notification") in window) {//si le navigateur ne supporte pas les notifications
       alert("Votre navigateur ne supporte pas les notifications");
-    } else if (Notification.permission === "granted") {
+    } else if (Notification.permission === "granted") {//si nous avons les droits
       console.log("notification granted");
       myNotification = new Notification("Hello", options);
     } else {//si nous n'avons pas les droits, on va les demander
@@ -29,6 +29,6 @@ const notification = () => {
       window.open("https://google.com", "_blank");
     };
 });//end of click btn
-}
+}//end of notification
 
-notification()
+notification()//calling the function
