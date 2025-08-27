@@ -25,7 +25,7 @@ const urlsToCache = [
   "https://ingrwf12.cepegra-frontend.xyz/cockpit1/api/content/item/voyages"
 ];
 
-const cacheVersion = 2;
+const cacheVersion = 1;
 const CACHE_NAME = `pwa-cache-${cacheVersion}`;
 
 //install
