@@ -98,3 +98,27 @@ self.addEventListener("fetch", (e) => {
     })
   );
 });
+
+//notifs push
+let url= null
+self.addEventListener("push", (ev) => {
+  if(!(self.Notification && self.Notification.permission === "granted")) return;
+  //si le navigateur ne supporte pas les notifications ou si nous n'avons pas les droits, on sort
+  console.log("notif data ", ev.data);  
+  const data = ev.data?.json() ?? {};//on recupere les data envoyees par le serveur
+  const title = data.title || "Notification";//on recupere le titre
+  url = data.url || "https://google.com";
+  const message = data.message || "Ceci est une notification";
+  const icon = "icons/favicon-256x256.png";
+  const options = {
+    body: message,
+    icon,
+  };
+  const notification = registration.showNotification(data.title, options);
+  self.addEventListener("notificationclick", (ev) => {
+    ev.notification.close();
+    ev.waitUntil(
+      clients.openWindow(url)
+    );
+  })
+});
